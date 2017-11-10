@@ -2,7 +2,7 @@ package org.bumishi.admin.interfaces.system.web;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bumishi.admin.application.ResourceService;
-import org.bumishi.admin.domain.modle.Resource;
+import org.bumishi.admin.domain.model.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

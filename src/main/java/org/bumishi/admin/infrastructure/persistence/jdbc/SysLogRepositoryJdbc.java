@@ -1,6 +1,6 @@
 package org.bumishi.admin.infrastructure.persistence.jdbc;
 
-import org.bumishi.admin.domain.modle.SysLog;
+import org.bumishi.admin.domain.model.SysLog;
 import org.bumishi.admin.domain.repository.SysLogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

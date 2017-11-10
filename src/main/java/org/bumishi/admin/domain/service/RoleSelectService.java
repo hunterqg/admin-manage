@@ -1,7 +1,7 @@
 package org.bumishi.admin.domain.service;
 
-import org.bumishi.admin.domain.modle.Role;
-import org.bumishi.admin.domain.modle.SelectRole;
+import org.bumishi.admin.domain.model.Role;
+import org.bumishi.admin.domain.model.SelectRole;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 

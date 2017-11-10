@@ -1,7 +1,6 @@
 package org.bumishi.admin.domain.repository;
 
-import org.bumishi.admin.domain.modle.Role;
-import org.bumishi.admin.domain.modle.User;
+import org.bumishi.admin.domain.model.User;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package org.bumishi.admin.domain.repository;
 
-import org.bumishi.admin.domain.modle.Resource;
+import org.bumishi.admin.domain.model.Resource;
 
 import java.util.List;
 

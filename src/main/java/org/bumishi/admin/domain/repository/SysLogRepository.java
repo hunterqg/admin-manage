@@ -1,6 +1,6 @@
 package org.bumishi.admin.domain.repository;
 
-import org.bumishi.admin.domain.modle.SysLog;
+import org.bumishi.admin.domain.model.SysLog;
 
 import java.util.List;
 

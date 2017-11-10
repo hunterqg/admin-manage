@@ -1,7 +1,7 @@
 package org.bumishi.admin.application;
 
-import org.bumishi.admin.domain.modle.Menu;
-import org.bumishi.admin.domain.modle.TreeModel;
+import org.bumishi.admin.domain.model.Menu;
+import org.bumishi.admin.domain.model.TreeModel;
 import org.bumishi.admin.domain.repository.MenuRepository;
 import org.bumishi.admin.domain.repository.RoleRepository;
 import org.bumishi.admin.security.SecurityUtil;

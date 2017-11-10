@@ -1,8 +1,8 @@
 package org.bumishi.admin.application;
 
-import org.bumishi.admin.domain.modle.Role;
-import org.bumishi.admin.domain.modle.SelectMenu;
-import org.bumishi.admin.domain.modle.SelectResource;
+import org.bumishi.admin.domain.model.Role;
+import org.bumishi.admin.domain.model.SelectMenu;
+import org.bumishi.admin.domain.model.SelectResource;
 import org.bumishi.admin.domain.repository.MenuRepository;
 import org.bumishi.admin.domain.repository.ResourceRepository;
 import org.bumishi.admin.domain.repository.RoleRepository;

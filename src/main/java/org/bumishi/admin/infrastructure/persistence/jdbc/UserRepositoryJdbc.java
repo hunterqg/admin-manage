@@ -1,7 +1,6 @@
 package org.bumishi.admin.infrastructure.persistence.jdbc;
 
-import org.bumishi.admin.domain.modle.Role;
-import org.bumishi.admin.domain.modle.User;
+import org.bumishi.admin.domain.model.User;
 import org.bumishi.admin.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -28,12 +27,12 @@ public class UserRepositoryJdbc implements UserRepository {
 
     @Override
     public void add(User user) {
-        jdbcTemplate.update("INSERT user (id,username,password,email,disabled,createTime,salt) VALUES (?,?,?,?,?,?,?)",user.getId(),user.getUsername(),user.getPassword(),user.getEmail(),user.isDisabled()?1:0,new Date(),user.getSalt());
+        jdbcTemplate.update("INSERT user (id,username,password,email,disabled,createTime,salt) VALUES (?,?,?,?,?,?,?)", user.getId(), user.getUsername(), user.getPassword(), user.getEmail(), user.isDisabled() ? 1 : 0, new Date(), user.getSalt());
     }
 
     @Override
     public void update(User user) {
-        jdbcTemplate.update("UPDATE user SET username=?,email=?,password=? WHERE id=?",user.getUsername(),user.getEmail(),user.getPassword(),user.getId());
+        jdbcTemplate.update("UPDATE user SET username=?,email=?,password=? WHERE id=?", user.getUsername(), user.getEmail(), user.getPassword(), user.getId());
     }
 
     @Override
@@ -57,12 +56,12 @@ public class UserRepositoryJdbc implements UserRepository {
 
     @Override
     public User get(String id) {
-        return jdbcTemplate.queryForObject("select * from user where id=?", BeanPropertyRowMapper.newInstance(User.class),id);
+        return jdbcTemplate.queryForObject("select * from user where id=?", BeanPropertyRowMapper.newInstance(User.class), id);
     }
 
     @Override
     public boolean contains(String name) {
-        return jdbcTemplate.query("select count(username) from user where username=?", rs -> rs.getInt(1)>0,name);
+        return jdbcTemplate.query("select count(username) from user where username=?", rs -> rs.getInt(1) > 0, name);
     }
 
     @Override
@@ -72,24 +71,23 @@ public class UserRepositoryJdbc implements UserRepository {
 
 
     @Override
-    public boolean hasResourcePermission(String uid,String resourceCode) {
-        return jdbcTemplate.query("select count(*) from user_role ur join role_resource rr on ur.role_id=rr.role_id where ur.uid=? and rr.resource_id=?",rs -> rs.getInt(0)>0,uid,resourceCode);
+    public boolean hasResourcePermission(String uid, String resourceCode) {
+        return jdbcTemplate.query("select count(*) from user_role ur join role_resource rr on ur.role_id=rr.role_id where ur.uid=? and rr.resource_id=?", rs -> rs.getInt(0) > 0, uid, resourceCode);
     }
-
 
 
     @Override
     public void remove(String id) {
-        User user=get(id);
-        if(user.isRoot()){
+        User user = get(id);
+        if (user.isRoot()) {
             return;
         }
-        jdbcTemplate.update("DELETE FROM user WHERE id=?",id);
-        jdbcTemplate.update("DELETE FROM user_role WHERE uid=?",id);
+        jdbcTemplate.update("DELETE FROM user WHERE id=?", id);
+        jdbcTemplate.update("DELETE FROM user_role WHERE uid=?", id);
     }
 
-    public void switchStatus(String id,boolean disabled){
-        jdbcTemplate.update("update user SET disabled=? WHERE id=?",disabled?1:0,id);
+    public void switchStatus(String id, boolean disabled) {
+        jdbcTemplate.update("update user SET disabled=? WHERE id=?", disabled ? 1 : 0, id);
     }
 
 
@@ -97,7 +95,7 @@ public class UserRepositoryJdbc implements UserRepository {
     public User findByUserName(String username) {
         try {
             return jdbcTemplate.queryForObject("select * from user where username=? ", BeanPropertyRowMapper.newInstance(User.class), username);
-        }catch (EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             return null;
         }
     }

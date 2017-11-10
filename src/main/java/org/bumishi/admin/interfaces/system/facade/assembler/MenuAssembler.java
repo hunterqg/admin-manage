@@ -1,6 +1,6 @@
 package org.bumishi.admin.interfaces.system.facade.assembler;
 
-import org.bumishi.admin.domain.modle.Menu;
+import org.bumishi.admin.domain.model.Menu;
 import org.bumishi.admin.infrastructure.BeanUtil;
 import org.bumishi.admin.interfaces.system.facade.commondobject.MenuCreateCommand;
 import org.bumishi.admin.interfaces.system.facade.commondobject.MenuUpdateCommond;

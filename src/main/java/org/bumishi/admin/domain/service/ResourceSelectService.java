@@ -1,9 +1,9 @@
 package org.bumishi.admin.domain.service;
 
-import org.bumishi.admin.domain.modle.Menu;
-import org.bumishi.admin.domain.modle.Resource;
-import org.bumishi.admin.domain.modle.SelectMenu;
-import org.bumishi.admin.domain.modle.SelectResource;
+import org.bumishi.admin.domain.model.Menu;
+import org.bumishi.admin.domain.model.Resource;
+import org.bumishi.admin.domain.model.SelectMenu;
+import org.bumishi.admin.domain.model.SelectResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 

@@ -3,7 +3,7 @@ package org.bumishi.admin.interfaces.system.web;
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 import org.bumishi.admin.application.RoleService;
-import org.bumishi.admin.domain.modle.Role;
+import org.bumishi.admin.domain.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
 package org.bumishi.admin.infrastructure.persistence.jdbc;
 
-import org.bumishi.admin.domain.modle.Resource;
+import org.bumishi.admin.domain.model.Resource;
 import org.bumishi.admin.domain.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

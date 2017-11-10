@@ -1,6 +1,6 @@
 package org.bumishi.admin.domain.repository;
 
-import org.bumishi.admin.domain.modle.Menu;
+import org.bumishi.admin.domain.model.Menu;
 
 import java.util.List;
 

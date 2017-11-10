@@ -1,7 +1,7 @@
 package org.bumishi.admin.security;
 
-import org.bumishi.admin.domain.modle.Role;
-import org.bumishi.admin.domain.modle.User;
+import org.bumishi.admin.domain.model.Role;
+import org.bumishi.admin.domain.model.User;
 import org.bumishi.admin.domain.repository.RoleRepository;
 import org.bumishi.admin.domain.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

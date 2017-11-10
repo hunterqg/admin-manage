@@ -1,4 +1,4 @@
-package org.bumishi.admin.domain.modle;
+package org.bumishi.admin.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;

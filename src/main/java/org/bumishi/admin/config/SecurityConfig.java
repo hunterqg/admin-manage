@@ -33,12 +33,14 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.logout.SimpleUrlLogoutSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -86,7 +88,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterAt(urlSecurityInterceptor(), FilterSecurityInterceptor.class);//处理自定义的权限
         //http.authorizeRequests()对应FilterSecurityInterceptor，不配置就不会加入FilterSecurityInterceptor
         http.formLogin().loginProcessingUrl("/login").loginPage("/to-login").defaultSuccessUrl("/").successHandler(new AuthenticationSuccessHandler());
-        http.logout().logoutSuccessHandler(new LogoutSuccessHandler());
+//        http.logout().logoutUrl("/to-logout").logoutSuccessHandler(new LogoutSuccessHandler());
+        /*
+        由于spring security 默认使用post方法来logout，所以下面的logoutRequestMatcher 将匹配get 方法来实现，不过这个不是很安全
+         */
+        http.logout().logoutSuccessUrl("/to-login").logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessHandler(new LogoutSuccessHandler());
         http.exceptionHandling().authenticationEntryPoint(new MyAuthenticationEntryPoint()).accessDeniedHandler(new MyAccessDeniedHandler());
     }
 
@@ -136,7 +142,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         public void onAuthenticationSuccess(HttpServletRequest request,
                                             HttpServletResponse response, Authentication authentication)
                 throws ServletException, IOException {
-
             clearAuthenticationAttributes(request);
             if (!isAjax(request)) {
                 super.onAuthenticationSuccess(request, response, authentication);
@@ -153,6 +158,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             if (!isAjax(request)) {
                 super.onLogoutSuccess(request, response, authentication);
             }
+            logger.debug("Logout successfully." + authentication.getName());
         }
     }
 

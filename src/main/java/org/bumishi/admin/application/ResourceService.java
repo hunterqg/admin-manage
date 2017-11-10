@@ -1,6 +1,6 @@
 package org.bumishi.admin.application;
 
-import org.bumishi.admin.domain.modle.Resource;
+import org.bumishi.admin.domain.model.Resource;
 import org.bumishi.admin.domain.repository.ResourceRepository;
 import org.bumishi.admin.domain.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;

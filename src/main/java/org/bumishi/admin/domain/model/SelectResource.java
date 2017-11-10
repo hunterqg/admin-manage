@@ -1,40 +1,40 @@
-package org.bumishi.admin.domain.modle;
+package org.bumishi.admin.domain.model;
 
 /**
  * @author qiang.xie
  * @date 2016/10/28
  */
-public class SelectMenu {
+public class SelectResource {
 
-    private String mid;//菜单id
+    private String rid;//resource id
 
     private String label;
 
-    private boolean checked;//角色是否有此菜单权限
+    private boolean checked;
 
-    public SelectMenu() {
+    public SelectResource() {
     }
 
-    public SelectMenu(String mid, String label, boolean checked) {
-        this.mid = mid;
+    public SelectResource(String rid, String label, boolean checked) {
+        this.rid = rid;
         this.label = label;
         this.checked = checked;
-    }
-
-    public String getMid() {
-        return mid;
     }
 
     public String getLabel() {
         return label;
     }
 
+    public String getRid() {
+        return rid;
+    }
+
     public boolean isChecked() {
         return checked;
     }
 
-    public void setMid(String mid) {
-        this.mid = mid;
+    public void setRid(String rid) {
+        this.rid = rid;
     }
 
     public void setLabel(String label) {

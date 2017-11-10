@@ -1,6 +1,6 @@
 package org.bumishi.admin.interfaces.system.facade.assembler;
 
-import org.bumishi.admin.domain.modle.User;
+import org.bumishi.admin.domain.model.User;
 import org.bumishi.admin.infrastructure.BeanUtil;
 import org.bumishi.admin.interfaces.system.facade.commondobject.ProfileCommand;
 import org.bumishi.admin.interfaces.system.facade.commondobject.UserCommond;

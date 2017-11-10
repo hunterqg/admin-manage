@@ -1,6 +1,6 @@
 package org.bumishi.admin.infrastructure.persistence.jdbc;
 
-import org.bumishi.admin.domain.modle.Role;
+import org.bumishi.admin.domain.model.Role;
 import org.bumishi.admin.domain.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;

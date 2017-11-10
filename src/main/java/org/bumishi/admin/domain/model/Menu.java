@@ -1,4 +1,4 @@
-package org.bumishi.admin.domain.modle;
+package org.bumishi.admin.domain.model;
 
 /**
  * Created by xieqiang on 2016/9/17.

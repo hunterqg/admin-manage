@@ -2,8 +2,8 @@ package org.bumishi.admin.application;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.bumishi.admin.domain.modle.SelectRole;
-import org.bumishi.admin.domain.modle.User;
+import org.bumishi.admin.domain.model.SelectRole;
+import org.bumishi.admin.domain.model.User;
 import org.bumishi.admin.domain.repository.RoleRepository;
 import org.bumishi.admin.domain.repository.UserRepository;
 import org.bumishi.admin.domain.service.RoleSelectService;

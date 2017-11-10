@@ -1,4 +1,4 @@
-package org.bumishi.admin.domain.modle;
+package org.bumishi.admin.domain.model;
 
 /**
  * 用户分配角色功能中列出角色，用户已经具备的角色checked=true
