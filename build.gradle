@@ -36,7 +36,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-starter-cache")
-//    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile 'org.springframework.boot:spring-boot-starter-security'
 
     compile("de.codecentric:spring-boot-admin-server:1.4.3")
@@ -59,9 +59,7 @@ dependencies {
     compile 'org.thymeleaf:thymeleaf:3.0.2.RELEASE'
     compile 'org.thymeleaf:thymeleaf-spring4:3.0.2.RELEASE'
     compile 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.0.3'
-    compile files('src/main/lib/bumishi-toolbox-1.0.jar')
-
-
+//    compile files('src/main/lib/bumishi-toolbox-1.0.jar')
 }
 springBoot {
     mainClass = "org.bumishi.admin.AdminApplication"

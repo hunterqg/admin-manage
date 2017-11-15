@@ -19,11 +19,11 @@ management:
 spring:
   application:
     name: admin-managee
-    qiniu:
-        access-key: NDx4d9Lr1IYC7ThIFw-s77rCnJJPqdQX5bKl169j
-        securt-key: QIEaT5yrcdaLmBIUhBp2rYkivtWZLFd_u3OFvbt6
-        bucket: bumishi-blog
-        domain: http://ohtnk29z2.bkt.clouddn.com
+#    qiniu:
+#        access-key: NDx4d9Lr1IYC7ThIFw-s77rCnJJPqdQX5bKl169j
+#        securt-key: QIEaT5yrcdaLmBIUhBp2rYkivtWZLFd_u3OFvbt6
+#        bucket: bumishi-blog
+#        domain: http://ohtnk29z2.bkt.clouddn.com
 
   datasource:
     url: jdbc:mysql://10.33.145.121:3306/mm_managment_console?characterEncoding=utf-8
@@ -54,6 +54,3 @@ spring:
   thymeleaf:
       prefix: classpath:/public/thymeleaf/
       cache: false
-
-blog:
-  host: http://localhost:8686
