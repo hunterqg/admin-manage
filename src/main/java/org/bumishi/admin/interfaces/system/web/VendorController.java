@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller("/vendor")
 public class VendorController {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+//    @RequestMapping(value = "/",method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("message","Hello Vendor");
-        return "vendor/welcome";
+        return "vendor/welcome1";
     }
 }

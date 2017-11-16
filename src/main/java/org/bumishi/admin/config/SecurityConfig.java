@@ -178,7 +178,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             if (!isAjax(request)) {
                 super.onLogoutSuccess(request, response, authentication);
             }
-            logger.debug("Logout successfully." + authentication.getName());
+            if(authentication != null) {
+                logger.debug("Logout successfully." + authentication.getName());
+            }
         }
     }
 
