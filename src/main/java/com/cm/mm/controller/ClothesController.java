@@ -1,4 +1,4 @@
-package org.bumishi.admin.interfaces.system.web;
+package com.cm.mm.controller;
 
 import org.bumishi.admin.security.SecurityUtil;
 import org.springframework.stereotype.Controller;
