@@ -54,3 +54,7 @@ spring:
   thymeleaf:
       prefix: classpath:/public/thymeleaf/
       cache: false
+admin:
+  cloth:
+    upload:
+      path: e:/upload_img/

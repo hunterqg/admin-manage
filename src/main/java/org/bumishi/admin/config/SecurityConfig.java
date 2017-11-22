@@ -139,6 +139,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/**/*.pdf",
                 "/*.ico",
                 "/admin/api/**",
+                "/upload_img/**",
 //                "/api/**",
                 "/404", "/401","/403", "/error");
     }
