@@ -1,6 +1,7 @@
 package com.cm.mm.dao.sqlprovider;
 
 import com.cm.mm.model.Cloth;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.util.TextUtils;
 import org.apache.ibatis.jdbc.SQL;
 
@@ -24,6 +25,15 @@ public class ClothSqlProvider {
         if (cloth.getType() != null) {
             sql.WHERE("type=#{type}");
         }
+
+        return sql.toString();
+    }
+    public String getClothesByIds(Integer[] ids) {
+        SQL sql = new SQL()
+                .SELECT("id,name,model,type,user_id,pic_url,createAt,updateAt")
+                .FROM("mm_cloth");
+
+        sql.WHERE("id in ("+ StringUtils.join(ids,',')+")");
 
         return sql.toString();
     }

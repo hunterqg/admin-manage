@@ -6,6 +6,8 @@ import com.cm.mm.service.TypeService;
 import org.apache.catalina.core.ApplicationContext;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.commons.lang3.time.DateUtils;
 import org.bumishi.admin.security.SecurityUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by qingao on 2017/11/15.
@@ -97,13 +96,17 @@ public class ClothController {
         }
         try {
             String fileSavePath = imgUploadPath;
+            String monthStr = DateFormatUtils.format(new Date(),"yyyy-MM");
+            fileSavePath += monthStr + File.separator;
             File filePath = new File(fileSavePath);
             if(!filePath.exists()) {
                 filePath.mkdirs();
             }
-            File f = new File(fileSavePath + System.currentTimeMillis()+"."+fileExtName);
+            String fileName =  System.currentTimeMillis()+"."+fileExtName;
+            File f = new File(fileSavePath + fileName);
             logger.debug(f.getAbsolutePath());
             file.transferTo(f);
+            retMap.put("result","/upload_img/"+fileName);
             logger.debug("upload file saved to:" + f.getAbsolutePath());
         } catch (IOException e) {
             retMap.put("message","Save file failed! == " + e.getMessage());

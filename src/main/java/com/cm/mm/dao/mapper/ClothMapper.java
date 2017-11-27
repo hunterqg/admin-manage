@@ -15,6 +15,7 @@ public interface ClothMapper {
 
     @Select(SQL_GET_CLOTH_BY_ID)
     @Results(
+            id="Cloth",value =
             {
                     @Result(column = "pic_url",property = "picUrl"),
                     @Result(column = "user_id",property = "userId")
@@ -22,13 +23,12 @@ public interface ClothMapper {
     )
     Cloth getClothById(@Param("id") Integer id);
 
+    @SelectProvider(type=ClothSqlProvider.class , method = "getClothesByIds")
+    @ResultMap("Cloth")
+    List<Cloth> getClothByIds(@Param("ids") Integer[] ids);
+
     @SelectProvider(type= ClothSqlProvider.class,method = "getClothesSql")
-    @Results(
-            {
-                    @Result(column = "pic_url",property = "picUrl"),
-                    @Result(column = "user_id",property = "userId")
-            }
-    )
+    @ResultMap("Cloth")
     List<Cloth> listClothes(Cloth cloth);
 
     @Insert("insert into mm_cloth (name,model,type,user_id,pic_url) " +

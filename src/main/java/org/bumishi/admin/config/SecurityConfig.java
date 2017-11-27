@@ -140,11 +140,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 "/*.ico",
                 "/admin/api/**",
                 "/upload_img/**",
-//                "/api/**",
+                "/api/**",
                 "/404", "/401","/403", "/error");
     }
 
-    //由于springboot默认会将所要的servlet,filter,listenr等标准servlet组件自动加入到servlet的过滤器链中，自定义的UrlSecurityInterceptor只希望加入security的过滤器链，中，所以这里配置不向servlet容器中注册
+    //由于springboot默认会将所要的servlet,filter,listenr等标准servlet组件自动加入到servlet的过滤器链中，
+    // 自定义的UrlSecurityInterceptor只希望加入security的过滤器链中，所以这里配置不向servlet容器中注册
     @Bean
     public FilterRegistrationBean registration(UrlSecurityInterceptor filter) {
         FilterRegistrationBean registration = new FilterRegistrationBean(filter);

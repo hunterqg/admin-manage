@@ -28,6 +28,10 @@ public class ClothDao {
         return mapper.listClothes(cloth);
     }
 
+    public List<Cloth> listClothes(Integer[] ids) {
+        return mapper.getClothByIds(ids);
+    }
+
     public int insertCloth(Cloth cloth) {
         return mapper.insertCloth(cloth);
     }
