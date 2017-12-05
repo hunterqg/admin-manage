@@ -21,4 +21,8 @@ public interface ClothTagMapper {
             }
     )
     List<ClothTag> getClothTags(@Param("tags") Integer [] tags);
+
+    @Select("select id,cloth_id,tag_id,createAt from mm_cloth_tag where cloth_id=#{clothId}")
+    @ResultMap("ClothTag")
+    List<ClothTag> getClothTagsByClothId(@Param("clothId") Integer clothId);
 }

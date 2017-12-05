@@ -10,6 +10,17 @@ public class Cloth extends Base {
     private String userId;
     private Integer type;
 
+    public Cloth() {
+
+    }
+    public Cloth( String name,String model,String userId,String picUrl,Integer type) {
+        this.name = name;
+        this.type = type;
+        this.userId = userId;
+        this.picUrl = picUrl;
+        this.model = model;
+    }
+
     public String getName() {
         return name;
     }

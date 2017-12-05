@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * Created by xieqiang on 2016/9/11.
@@ -16,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan("org.bumishi.admin,com.cm.mm")
 @MapperScan("com.cm.mm.dao.mapper")
+@EnableScheduling
 public class AdminApplication {
 
     public static void main(String[] arg){

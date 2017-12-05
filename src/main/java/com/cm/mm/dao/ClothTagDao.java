@@ -18,4 +18,9 @@ public class ClothTagDao {
     public List<ClothTag> getClothTags(Integer [] tags) {
         return mapper.getClothTags(tags);
     }
+    public List<ClothTag> getClothTagsByClothId(Integer clothId) {
+        return mapper.getClothTagsByClothId(clothId);
+    }
+
+
 }

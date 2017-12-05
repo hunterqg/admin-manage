@@ -3,7 +3,7 @@ out/
 .idea/
 .gradle/
 /src/main/resources/public/pages
-
+classes/
 **/node_modules/
 **/typings/
 **/npm-debug.*
