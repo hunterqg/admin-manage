@@ -528,15 +528,15 @@ public class RulesFactory {
 
 
         //recommend reason map
-        recommendReasonMap.put(KEY_BODY_SHAPE_A1,"身材娇小适合年轻&活力款");
-        recommendReasonMap.put(KEY_BODY_SHAPE_B1,"身材纤细，混搭造型+潮流轮廓，瞬间点亮全身");
-        recommendReasonMap.put(KEY_BODY_SHAPE_C1,"身材高挑，百搭单品让你时尚零时差");
-        recommendReasonMap.put(KEY_BODY_SHAPE_A2,"身材娇小，摩登风格，精致出众");
-        recommendReasonMap.put(KEY_BODY_SHAPE_B2,"身材完美，独特&现代的款式突出气质");
-        recommendReasonMap.put(KEY_BODY_SHAPE_C2,"身材高挑，随性&有型的款式可轻松驾驭");
-        recommendReasonMap.put(KEY_BODY_SHAPE_A3,"身材匀称，简约线条，极其显瘦");
-        recommendReasonMap.put(KEY_BODY_SHAPE_B3,"身材匀称，减重搭配，调整比例");
-        recommendReasonMap.put(KEY_BODY_SHAPE_C3,"身材匀称，时髦轮廓，一秒显瘦");
+        recommendReasonMap.put(KEY_BODY_SHAPE_A1,"娇小纤细");
+        recommendReasonMap.put(KEY_BODY_SHAPE_B1,"轻盈纤细");
+        recommendReasonMap.put(KEY_BODY_SHAPE_C1,"修长纤细");
+        recommendReasonMap.put(KEY_BODY_SHAPE_A2,"窈窕匀称");
+        recommendReasonMap.put(KEY_BODY_SHAPE_B2,"完美匀称");
+        recommendReasonMap.put(KEY_BODY_SHAPE_C2,"高挑匀称");
+        recommendReasonMap.put(KEY_BODY_SHAPE_A3,"玲珑&曲线稍弱");
+        recommendReasonMap.put(KEY_BODY_SHAPE_B3,"标致&曲线稍弱");
+        recommendReasonMap.put(KEY_BODY_SHAPE_C3,"高挑&曲线稍弱");
     }
 
     public static Map<String,List<Integer>> getRules (String key){

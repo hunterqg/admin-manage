@@ -23,7 +23,7 @@ public class RankedCloth extends Cloth {
         this.setModel(cloth.getModel());
         this.setName(cloth.getName());
         this.setPicUrl(cloth.getPicUrl());
-
+        this.setDescription(cloth.getDescription());
         this.setCreateAt(cloth.getCreateAt());
         this.setUpdateAt(cloth.getUpdateAt());
         this.setRank(rank);

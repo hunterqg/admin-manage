@@ -7,6 +7,7 @@ public class Cloth extends Base {
     private String name;
     private String model;
     private String picUrl;
+    private String description;
     private String userId;
     private Integer type;
 
@@ -58,5 +59,13 @@ public class Cloth extends Base {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

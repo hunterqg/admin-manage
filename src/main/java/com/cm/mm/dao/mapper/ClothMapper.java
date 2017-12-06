@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Mapper
 public interface ClothMapper {
-    String SQL_GET_CLOTH_BY_ID = "select id,name,model,type,user_id,pic_url,createAt,updateAt from mm_cloth where id=#{id}";
+    String SQL_GET_CLOTH_BY_ID = "select id,name,model,type,user_id,pic_url,description,createAt,updateAt from mm_cloth where id=#{id}";
 
     @Select(SQL_GET_CLOTH_BY_ID)
     @Results(
@@ -31,8 +31,8 @@ public interface ClothMapper {
     @ResultMap("Cloth")
     List<Cloth> listClothes(Cloth cloth);
 
-    @Insert("insert into mm_cloth (name,model,type,user_id,pic_url) " +
-            "values (#{name},#{model},#{type},#{userId},#{picUrl})")
+    @Insert("insert into mm_cloth (name,model,type,user_id,pic_url,description) " +
+            "values (#{name},#{model},#{type},#{userId},#{picUrl},#{description})")
     int insertCloth(Cloth cloth);
 
     @Delete("delete from mm_cloth where id=#{id}")
@@ -43,7 +43,8 @@ public interface ClothMapper {
             "model=#{model}," +
             "type=#{type}," +
             "user_id=#{userId}," +
-            "pic_url=#{picUrl} " +
+            "pic_url=#{picUrl}, " +
+            "description=#{description} " +
             "where id=#{id}")
     int updateCloth(Cloth cloth);
 
