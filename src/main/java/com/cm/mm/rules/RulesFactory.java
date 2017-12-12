@@ -539,10 +539,13 @@ public class RulesFactory {
         recommendReasonMap.put(KEY_BODY_SHAPE_C3,"高挑&曲线稍弱");
     }
 
-    public static Map<String,List<Integer>> getRules (String key){
+    public Map<String,List<Integer>> getRules (String key){
         return rules.get(key);
     }
 
+    public static RulesFactory getInstance() {
+        return instance;
+    }
     public String getRecommendReason(String key) {
         return recommendReasonMap.get(key);
     }

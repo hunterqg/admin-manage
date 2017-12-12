@@ -9,6 +9,7 @@ import com.cm.mm.rules.RulesFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -19,7 +20,7 @@ import java.util.*;
 
 @Service
 public class RecommendService {
-    private static final int MAX_RECOMMEND_NUMBER = 5;
+    private static final int MAX_RECOMMEND_NUMBER = 10;
 
     private Logger logger = LoggerFactory.getLogger(RecommendService.class);
     @Autowired
@@ -31,12 +32,16 @@ public class RecommendService {
      * 获取符合条件的衣服信息
      * @param tagKey 传入的条件
      * @param  type 衣服的类型
+     * @param userId
      * @return
      */
-    public List<RankedCloth> getRecommendClothes(String tagKey, Integer type) {
+//    @Cacheable(value="RecommendClothList",
+//            key="{#tagKey,#type,#userId}")
+    public List<RankedCloth> getRecommendClothes(String tagKey, Integer type, String userId) {
         List<RankedCloth> recommendList = new ArrayList<>();
         Cloth conditionCloth = new Cloth();
         conditionCloth.setType(type);
+        conditionCloth.setUserId(userId);
         List<Cloth> typedClothList = clothDao.listClothes(conditionCloth);
 
         for (Cloth cloth : typedClothList) {
@@ -45,7 +50,6 @@ public class RecommendService {
                 recommendList.add(new RankedCloth(rank,cloth));
             }
         }
-        //推荐rank最高的 5 个
         recommendList.sort(new Comparator<RankedCloth>() {
             @Override
             public int compare(RankedCloth o1, RankedCloth o2) {
@@ -53,13 +57,13 @@ public class RecommendService {
             }
         });
         if (recommendList.size() > MAX_RECOMMEND_NUMBER) {
-           recommendList = recommendList.subList(0,MAX_RECOMMEND_NUMBER-1);
+           recommendList = recommendList.subList(0,MAX_RECOMMEND_NUMBER);
         }
         return recommendList;
     }
 
     private List<Integer> getAllTags(String tagKey,Integer type) {
-        Map<String,List<Integer>> tagRules = RulesFactory.getRules(tagKey);
+        Map<String,List<Integer>> tagRules = RulesFactory.getInstance().getRules(tagKey);
         if (tagRules == null) {
             return null;
         }

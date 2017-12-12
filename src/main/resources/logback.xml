@@ -7,9 +7,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/var/log/admin-manage/log.log</file>
+        <file>/data/log/admin-manage/log.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/var/log/admin-manage/log.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/data/log/admin-manage/log.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>7</maxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -19,9 +19,9 @@
     </appender>
 
     <appender name="SQL" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/var/log/admin-manage/sql.log</file>
+        <file>/data/log/admin-manage/sql.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/var/log/admin-manage/sql.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/data/log/admin-manage/sql.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>7</maxHistory>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">

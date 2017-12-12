@@ -1,5 +1,5 @@
 server:
-  port: 10000
+  port: 8080
   compression:
       enabled: true
   connection-timeout: 3000
@@ -26,9 +26,9 @@ spring:
       bucket: bumishi-blog
       domain: http://static.bumishi.cn
   datasource:
-    url: jdbc:mysql://localhost:3306/admin_manage?characterEncoding=utf-8
-    username: app
-    password: app
+    url: jdbc:mysql://localhost:3306/mm_managment_console?characterEncoding=utf-8
+    username: root
+    password: 20140508
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -54,3 +54,7 @@ spring:
         enabled: true
   thymeleaf:
     prefix: classpath:/public/thymeleaf/
+admin:
+  cloth:
+    upload:
+      path: /data/app/mm_manage/upload_img/
