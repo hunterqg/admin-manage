@@ -22,6 +22,19 @@ public class RulesFactory {
     public static final String KEY_BODY_SHAPE_C1 = "C1";
     public static final String KEY_BODY_SHAPE_C2 = "C2";
     public static final String KEY_BODY_SHAPE_C3 = "C3";
+
+    public static final String[] BODY_SHAPES = {
+            KEY_BODY_SHAPE_A1,
+            KEY_BODY_SHAPE_A2,
+            KEY_BODY_SHAPE_A3,
+            KEY_BODY_SHAPE_B1,
+            KEY_BODY_SHAPE_B2,
+            KEY_BODY_SHAPE_B3,
+            KEY_BODY_SHAPE_C1,
+            KEY_BODY_SHAPE_C2,
+            KEY_BODY_SHAPE_C3,
+    };
+
     public static final String KEY_BODY_SHAPE_A1_FORBID = "A1_FORBID";
     public static final String KEY_BODY_SHAPE_A2_FORBID = "A2_FORBID";
     public static final String KEY_BODY_SHAPE_A3_FORBID = "A3_FORBID";

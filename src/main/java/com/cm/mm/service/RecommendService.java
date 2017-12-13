@@ -73,9 +73,15 @@ public class RecommendService {
             allMatchTags.addAll(tagRules.get(key));
         }
         if(type == 1) {//如果是上装，移除下装的tag
-            allMatchTags.removeAll(tagRules.get(RulesFactory.KEY_DOWN_VALUES));
+            List<Integer> downTag = tagRules.get(RulesFactory.KEY_DOWN_VALUES);
+            if (downTag != null) {
+                allMatchTags.removeAll(downTag);
+            }
         }else if(type == 2) {//如果是下装，移除上装的tag
-            allMatchTags.removeAll(tagRules.get(RulesFactory.KEY_UP_VALUES));
+            List<Integer> upTag = tagRules.get(RulesFactory.KEY_UP_VALUES);
+            if(upTag!= null) {
+                allMatchTags.removeAll(upTag);
+            }
         }
         return  allMatchTags;
     }

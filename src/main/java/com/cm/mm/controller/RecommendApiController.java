@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by qingao on 2017/11/22.
@@ -32,7 +33,15 @@ public class RecommendApiController {
     @ResponseBody
     public Map test(@RequestBody Map map) {
         logger.debug("Recevied  map:" + map);
-        String key = RulesFactory.KEY_BODY_SHAPE_A1;
+
+        int baseHeight = 140;
+        Random random = new Random();
+        int randomInt = random.nextInt(60);
+        int height = baseHeight + randomInt;
+        logger.debug("get body height :" + height);
+        String key = getBodyShapeKey(height,0);
+
+        logger.debug("get body shape :" + key);
         List<RankedCloth> recommendList1 = recomendService.getRecommendClothes(key,1, "1");
         List<RankedCloth> recommendList2 = recomendService.getRecommendClothes(key,2, "1");
         map.clear();
@@ -48,5 +57,23 @@ public class RecommendApiController {
         map.put("data",data);
 
         return map;
+    }
+
+    private String getBodyShapeKey(int height,int width) {
+        int offset = 0;
+        Random random = new Random();
+        int index = 0;
+        int randomInt = random.nextInt(3);
+        if (height<160) {//A
+            offset = 0;
+
+        }else if(height>=160 && height<=168) {//B
+            offset = 3;
+        }else{ //C
+            offset = 6;
+
+        }
+        index = offset + randomInt;
+        return RulesFactory.BODY_SHAPES[index];
     }
 }
