@@ -23,6 +23,17 @@ public class RulesFactory {
     public static final String KEY_BODY_SHAPE_C2 = "C2";
     public static final String KEY_BODY_SHAPE_C3 = "C3";
 
+    public static final String KEY_FACE_COLOR_1 = "FC1";
+    public static final String KEY_FACE_COLOR_2 = "FC2";
+    public static final String KEY_FACE_COLOR_3 = "FC3";
+
+    public static final String KEY_FACE_SHAPE_1 = "FS1";
+    public static final String KEY_FACE_SHAPE_2 = "FS2";
+    public static final String KEY_FACE_SHAPE_3 = "FS3";
+    public static final String KEY_FACE_SHAPE_4 = "FS4";
+    public static final String KEY_FACE_SHAPE_5 = "FS5";
+    public static final String KEY_FACE_SHAPE_6 = "FS6";
+    public static final String KEY_FACE_SHAPE_7 = "FS7";
     public static final String[] BODY_SHAPES = {
             KEY_BODY_SHAPE_A1,
             KEY_BODY_SHAPE_A2,
@@ -550,7 +561,21 @@ public class RulesFactory {
         recommendReasonMap.put(KEY_BODY_SHAPE_A3,"玲珑&曲线稍弱");
         recommendReasonMap.put(KEY_BODY_SHAPE_B3,"标致&曲线稍弱");
         recommendReasonMap.put(KEY_BODY_SHAPE_C3,"高挑&曲线稍弱");
+
+        recommendReasonMap.put(KEY_FACE_COLOR_1,"清晨型：皮肤通透白皙，色彩搭配以清浅柔和为主");
+        recommendReasonMap.put(KEY_FACE_COLOR_2,"午后型：皮肤，匀称度好；避免浊色以及过于艳丽的颜色");
+        recommendReasonMap.put(KEY_FACE_COLOR_3,"黎明型：皮肤健康光感；色彩搭配以浓郁典雅为主");
+
+        recommendReasonMap.put(KEY_FACE_SHAPE_1,"标准型：适用任何领型");
+        recommendReasonMap.put(KEY_FACE_SHAPE_2,"圆形：适用任何领型");
+        recommendReasonMap.put(KEY_FACE_SHAPE_3,"V型：推荐V领，翻领");
+        recommendReasonMap.put(KEY_FACE_SHAPE_4,"三角形：推荐V领");
+        recommendReasonMap.put(KEY_FACE_SHAPE_5,"四边形：推荐V领 ");
+        recommendReasonMap.put(KEY_FACE_SHAPE_6,"长圆型：推荐一字领，圆领，高领");
+        recommendReasonMap.put(KEY_FACE_SHAPE_7,"钻石型：适用任何领型");
     }
+
+
 
     public Map<String,List<Integer>> getRules (String key){
         return rules.get(key);

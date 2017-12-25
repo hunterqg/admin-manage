@@ -20,7 +20,7 @@ import java.util.*;
 
 @Service
 public class RecommendService {
-    private static final int MAX_RECOMMEND_NUMBER = 10;
+    private static final int MAX_RECOMMEND_NUMBER = 20;
 
     private Logger logger = LoggerFactory.getLogger(RecommendService.class);
     @Autowired
@@ -37,7 +37,7 @@ public class RecommendService {
      */
 //    @Cacheable(value="RecommendClothList",
 //            key="{#tagKey,#type,#userId}")
-    public List<RankedCloth> getRecommendClothes(String tagKey, Integer type, String userId) {
+    public List<RankedCloth> getRecommendClothes(String tagKey, String faceColorKey,String faceShapeKey ,Integer type, String userId) {
         List<RankedCloth> recommendList = new ArrayList<>();
         Cloth conditionCloth = new Cloth();
         conditionCloth.setType(type);
@@ -46,7 +46,23 @@ public class RecommendService {
 
         for (Cloth cloth : typedClothList) {
             int rank = rankCloth(cloth,tagKey,type);
+            String descriptions = cloth.getDescription();
+            String [] descAry = descriptions.split("\r\n");
+            if(descAry.length>0) {
+                cloth.setDescription(descAry[0]);
+            }
             if(rank >0) {
+
+                if(faceColorKey != null && !faceColorKey.equals(RulesFactory.KEY_FACE_COLOR_1)) {//处理匹配肤色的规则
+                    if(descAry.length>1) {
+                        cloth.setDescription(descAry[1]);
+                        rank = rank + 2;
+                    }
+                }
+                if(faceShapeKey != null) {//处理脸型的推荐规则
+
+                }
+
                 recommendList.add(new RankedCloth(rank,cloth));
             }
         }

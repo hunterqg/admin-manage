@@ -5,8 +5,10 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -22,6 +24,8 @@ public class AdminApplication {
 
     public static void main(String[] arg){
         SpringApplication.run(AdminApplication.class);
+//        SpringApplicationBuilder builder = new SpringApplicationBuilder();
+//        builder.main(AdminApplication.class).run(arg);
     }
 
 }

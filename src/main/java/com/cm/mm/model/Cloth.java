@@ -10,6 +10,7 @@ public class Cloth extends Base {
     private String description;
     private String userId;
     private Integer type;
+    private Integer urlType;
 
     public Cloth() {
 
@@ -68,4 +69,13 @@ public class Cloth extends Base {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Integer getUrlType() {
+        return urlType;
+    }
+
+    public void setUrlType(Integer urlType) {
+        this.urlType = urlType;
+    }
+
 }

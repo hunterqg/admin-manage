@@ -11,14 +11,15 @@ import java.util.List;
  */
 @Mapper
 public interface ClothMapper {
-    String SQL_GET_CLOTH_BY_ID = "select id,name,model,type,user_id,pic_url,description,createAt,updateAt from mm_cloth where id=#{id}";
+    String SQL_GET_CLOTH_BY_ID = "select id,name,model,type,user_id,pic_url,url_type,description,createAt,updateAt from mm_cloth where id=#{id}";
 
     @Select(SQL_GET_CLOTH_BY_ID)
     @Results(
             id="Cloth",value =
             {
                     @Result(column = "pic_url",property = "picUrl"),
-                    @Result(column = "user_id",property = "userId")
+                    @Result(column = "user_id",property = "userId"),
+                    @Result(column = "url_type",property = "urlType")
             }
     )
     Cloth getClothById(@Param("id") Integer id);

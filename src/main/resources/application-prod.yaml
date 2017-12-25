@@ -5,8 +5,6 @@ server:
   connection-timeout: 3000
 
 debug: false
-
-
 ##登录记住我的token加密key
 remember:
   key: javajidi_com
