@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by qingao on 2017/11/22.
@@ -65,19 +62,20 @@ public class RecommendApiController {
                 RulesFactory.getInstance().getRecommendReason(faceShapeKey)
         };
         data.put("reason",reason);
-/*
+
+        Collections.sort(recommendList1,
+                (RankedCloth o1,RankedCloth o2) ->(int)(o2.getDisplayWeight()*100) - (int)(o1.getDisplayWeight()*100));
 
         recommendList1.addAll(recommendList2);
         Cloth cloth = recommendList1.get(0);
         cloth.setUrlType(2);
-        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://10.60.210.215:10000/upload_img/1.jpg");
+        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://211.159.176.204:8080/upload_img/1.jpg");
 
         cloth = recommendList1.get(1);
         cloth.setUrlType(3);
-        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://10.60.210.215:10000/upload_img/1.mp4");
-*/
+        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://211.159.176.204:8080/upload_img/1.mp4");
 
-        data.put("clothes",recommendList1);
+        data.put("clothes", recommendList1);
         map.put("data",data);
 
         return map;
