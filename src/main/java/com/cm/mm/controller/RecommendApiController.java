@@ -75,6 +75,18 @@ public class RecommendApiController {
         cloth.setUrlType(3);
         cloth.setPicUrl(cloth.getPicUrl()+";"+"http://211.159.176.204:8080/upload_img/1.mp4");
 
+        cloth = recommendList1.get(2);
+        cloth.setUrlType(3);
+        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://211.159.176.204:8080/upload_img/2.mp4");
+
+        cloth = recommendList1.get(3);
+        cloth.setUrlType(3);
+        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://211.159.176.204:8080/upload_img/3.mp4");
+
+        cloth = recommendList1.get(4);
+        cloth.setUrlType(3);
+        cloth.setPicUrl(cloth.getPicUrl()+";"+"http://211.159.176.204:8080/upload_img/4.mp4");
+
         data.put("clothes", recommendList1);
         map.put("data",data);
 
