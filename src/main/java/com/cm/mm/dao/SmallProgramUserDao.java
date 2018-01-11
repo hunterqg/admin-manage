@@ -22,6 +22,6 @@ public class SmallProgramUserDao extends BaseDao{
         return mapper.insertSpUser(user);
     }
     public int updateSmallProgramUser(SmallProgramUser user) {
-        return mapper.updateCloth(user);
+        return mapper.updateSpUser(user);
     }
 }

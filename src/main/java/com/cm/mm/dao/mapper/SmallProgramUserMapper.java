@@ -30,6 +30,6 @@ public interface SmallProgramUserMapper {
             "skin_color=#{skinColor}, " +
             "style=#{style} " +
             "where wechat_id=#{wechatId}")
-    int updateCloth(SmallProgramUser user);
+    int updateSpUser(SmallProgramUser user);
 
 }
