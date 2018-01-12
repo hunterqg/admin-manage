@@ -34,6 +34,8 @@ public class RankedCloth extends Cloth {
         this.setUpdateAt(cloth.getUpdateAt());
         this.setRank(rank);
         this.setUrlType(cloth.getUrlType());
+        this.setBrand(cloth.getBrand());
+        this.setPrice(cloth.getPrice());
     }
 
     /*

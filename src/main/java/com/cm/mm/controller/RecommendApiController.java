@@ -3,15 +3,13 @@ package com.cm.mm.controller;
 import com.cm.mm.dto.RankedCloth;
 import com.cm.mm.model.Cloth;
 import com.cm.mm.rules.RulesFactory;
+import com.cm.mm.service.ClothService;
 import com.cm.mm.service.RecommendService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -26,6 +24,9 @@ public class RecommendApiController {
 
     @Autowired
     private RecommendService recomendService;
+
+    @Autowired
+    private ClothService clothService;
 
     @RequestMapping(value = "/recommend",method= RequestMethod.POST)
     @ResponseBody
@@ -118,5 +119,21 @@ public class RecommendApiController {
             retVal = 2;
         }
         return retVal;
+    }
+
+    @RequestMapping(value = "/cloth/{id}",method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> getCloth(@PathVariable("id")int id) {
+        Map<String,Object> retMap = new HashMap<>();
+        retMap.put("code",0);
+        retMap.put("msg","ok");
+        Cloth cloth = clothService.getClothById(id);
+        if(cloth != null) {
+            retMap.put("data",cloth);
+        }else{
+            retMap.put("code",-1);
+            retMap.put("msg","Cloth not found with ID:" +id);
+        }
+        return retMap;
     }
 }

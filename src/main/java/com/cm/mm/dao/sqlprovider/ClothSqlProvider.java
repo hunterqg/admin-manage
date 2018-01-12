@@ -11,7 +11,7 @@ import org.apache.ibatis.jdbc.SQL;
 public class ClothSqlProvider {
     public String getClothesSql(Cloth cloth) {
         SQL sql = new SQL()
-                .SELECT("id,name,model,type,user_id,url_type,pic_url,description, createAt,updateAt")
+                .SELECT("id,name,model,brand_id,price,type,user_id,url_type,pic_url,description, createAt,updateAt")
                 .FROM("mm_cloth");
         if (!TextUtils.isEmpty(cloth.getName())) {
             sql.WHERE("name=#{name}");
@@ -28,11 +28,17 @@ public class ClothSqlProvider {
         if (cloth.getUrlType() != null) {
             sql.WHERE("url_type=#{urlType}");
         }
+        if(cloth.getBrand()!=null && cloth.getBrand().getId()!= null) {
+            sql.WHERE("brand_id=#{brand.id}");
+        }
+        if(cloth.getPrice()!= null) {
+            sql.WHERE("price=#{price}");
+        }
         return sql.toString();
     }
     public String getClothesByIds(Integer[] ids) {
         SQL sql = new SQL()
-                .SELECT("id,name,model,type,user_id,url_type,pic_url,video_url,description,createAt,updateAt")
+                .SELECT("id,name,model,brand_id,price,type,user_id,url_type,pic_url,video_url,description,createAt,updateAt")
                 .FROM("mm_cloth");
 
         sql.WHERE("id in ("+ StringUtils.join(ids,',')+")");

@@ -10,17 +10,38 @@ public class Cloth extends Base {
     private String description;
     private String userId;
     private Integer type;
+    private Float price;
+    private ClothBrand brand;
     private Integer urlType;
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+    public ClothBrand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(ClothBrand brand) {
+        this.brand = brand;
+    }
+
 
     public Cloth() {
 
     }
-    public Cloth( String name,String model,String userId,String picUrl,Integer type) {
+    public Cloth( String name,String model,String userId,String picUrl,Integer type,Float price,ClothBrand brand) {
         this.name = name;
         this.type = type;
         this.userId = userId;
         this.picUrl = picUrl;
         this.model = model;
+        this.brand = brand;
+        this.price = price;
     }
 
     public String getName() {

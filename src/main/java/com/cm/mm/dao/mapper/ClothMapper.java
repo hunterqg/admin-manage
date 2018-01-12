@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Mapper
 public interface ClothMapper {
-    String SQL_GET_CLOTH_BY_ID = "select id,name,model,type,user_id,pic_url,url_type,description,createAt,updateAt from mm_cloth where id=#{id}";
+    String SQL_GET_CLOTH_BY_ID = "select id,name,model,brand_id,price,type,user_id,pic_url,url_type,description,createAt,updateAt from mm_cloth where id=#{id}";
 
     @Select(SQL_GET_CLOTH_BY_ID)
     @Results(
@@ -19,7 +19,8 @@ public interface ClothMapper {
             {
                     @Result(column = "pic_url",property = "picUrl"),
                     @Result(column = "user_id",property = "userId"),
-                    @Result(column = "url_type",property = "urlType")
+                    @Result(column = "url_type",property = "urlType"),
+                    @Result(column = "brand_id",property = "brand",one=@One(select = "com.cm.mm.dao.mapper.ClothBrandMapper.getClothBrandById"))
             }
     )
     Cloth getClothById(@Param("id") Integer id);
@@ -32,8 +33,8 @@ public interface ClothMapper {
     @ResultMap("Cloth")
     List<Cloth> listClothes(Cloth cloth);
 
-    @Insert("insert into mm_cloth (name,model,type,user_id,pic_url,description) " +
-            "values (#{name},#{model},#{type},#{userId},#{picUrl},#{description})")
+    @Insert("insert into mm_cloth (name,model,brand_id,price,type,user_id,pic_url,description) " +
+            "values (#{name},#{model},#{brand.id},#{price},#{type},#{userId},#{picUrl},#{description})")
     int insertCloth(Cloth cloth);
 
     @Delete("delete from mm_cloth where id=#{id}")
@@ -42,6 +43,8 @@ public interface ClothMapper {
     @Update("update mm_cloth " +
             "set name=#{name}," +
             "model=#{model}," +
+            "brand_id=#{brand.id}," +
+            "price=#{price}," +
             "type=#{type}," +
             "user_id=#{userId}," +
             "pic_url=#{picUrl}, " +
