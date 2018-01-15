@@ -24,9 +24,11 @@ spring:
 #        securt-key: QIEaT5yrcdaLmBIUhBp2rYkivtWZLFd_u3OFvbt6
 #        bucket: bumishi-blog
 #        domain: http://ohtnk29z2.bkt.clouddn.com
-
+    malong:
+      access-key-id: 363c58349cd46cecff19ccb87eb50e85
+      access-key-secret: aae908114bd413dca68bb751e3654870
   datasource:
-    url: jdbc:mysql://10.33.145.13:3306/mm_managment_console?characterEncoding=utf-8
+    url: jdbc:mysql://10.33.145.16:3306/mm_managment_console?characterEncoding=utf-8
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
