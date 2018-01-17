@@ -37,8 +37,21 @@ public class RecommendApiController {
         Random random = new Random();
 //        int randomInt = random.nextInt(60);
 //        int height = baseHeight + randomInt;
-        double height = (double)map.get("height");
-        double shape = (double)map.get("shape");
+
+        Object h = map.get("height");
+        Object s = map.get("shape");
+        double height = 0d;
+        double shape = 0d;
+        if(h instanceof Double) {
+            height = (double)h;
+        }else if(h instanceof Integer) {
+            height = ((Integer) h).doubleValue();
+        }
+        if(s instanceof Double) {
+            shape = (double)s;
+        }else if(s instanceof Integer) {
+            shape = ((Integer) s).doubleValue();
+        }
         logger.debug(String.format("get body height %.2f,shape=%.2f:" , height,shape ));
 
         String key = getBodyShapeKey((int)height,shape);
