@@ -30,9 +30,9 @@ public class RecommendApiController {
 
     @RequestMapping(value = "/recommend",method= RequestMethod.POST)
     @ResponseBody
-    public Map test(@RequestBody Map map) {
+    public Map test(@RequestBody Map map,@RequestHeader(value = "x-requested-from",required = false)String requestFrom) {
         logger.debug("Recevied  map:" + map);
-
+        boolean isFromSp = "sp".equals(requestFrom);
 //        int baseHeight = 140;
         Random random = new Random();
 //        int randomInt = random.nextInt(60);
@@ -78,7 +78,9 @@ public class RecommendApiController {
         data.put("reason",reason);
 
         Collections.sort(recommendList1,
-                (RankedCloth o1,RankedCloth o2) ->(int)(o2.getDisplayWeight()*100) - (int)(o1.getDisplayWeight()*100));
+                (RankedCloth o1,RankedCloth o2) ->
+                        !isFromSp?((int)(o2.calcDisplayWeight()*100) - (int)(o1.calcDisplayWeight()*100))
+                                :((int)(o2.calcSpDisplayWeight()*100) - (int)(o1.calcSpDisplayWeight()*100)));
 
         recommendList1.addAll(recommendList2);
         Cloth cloth = recommendList1.get(0);
