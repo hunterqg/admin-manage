@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.*;
  */
 @Mapper
 public interface SmallProgramUserMapper {
-    @Select("select id,wechat_id,age,gender,height,weight,skin_color,style, createAt,updateAt from mm_small_program_user where wechat_id=#{wechatId}")
+    @Select("select id,wechat_id,age,gender,height,weight,skin_color,preferred,style, createAt,updateAt from mm_small_program_user where wechat_id=#{wechatId}")
     @Results(
             id="Small_Program_User",value =
             {
@@ -18,8 +18,8 @@ public interface SmallProgramUserMapper {
     )
     SmallProgramUser getSpUser(@Param("wechatId") String wechatId);
 
-    @Insert("insert into mm_small_program_user (wechat_id,age,gender,height,weight,skin_color,style)" +
-            " values (#{wechatId},#{age},#{gender},#{height},#{weight},#{skinColor},#{style})")
+    @Insert("insert into mm_small_program_user (wechat_id,age,gender,height,weight,skin_color,preferred,style)" +
+            " values (#{wechatId},#{age},#{gender},#{height},#{weight},#{skinColor},#{preferred},#{style})")
     int insertSpUser(SmallProgramUser user);
 
     @Update("update mm_small_program_user set " +
@@ -28,6 +28,7 @@ public interface SmallProgramUserMapper {
             "height=#{height}," +
             "weight=#{weight}," +
             "skin_color=#{skinColor}, " +
+            "preferred=#{preferred}, " +
             "style=#{style} " +
             "where wechat_id=#{wechatId}")
     int updateSpUser(SmallProgramUser user);

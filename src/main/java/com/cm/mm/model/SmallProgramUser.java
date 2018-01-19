@@ -14,6 +14,7 @@ public class SmallProgramUser extends Base{
     private Float height;
     private Float weight;
     private Integer skinColor;
+    private String preferred;
     private Integer style;
 
     public String getWechatId() {
@@ -70,5 +71,13 @@ public class SmallProgramUser extends Base{
 
     public void setStyle(Integer style) {
         this.style = style;
+    }
+
+    public String getPreferred() {
+        return preferred;
+    }
+
+    public void setPreferred(String preferred) {
+        this.preferred = preferred;
     }
 }
