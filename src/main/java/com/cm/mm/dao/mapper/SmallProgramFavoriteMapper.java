@@ -1,6 +1,7 @@
 package com.cm.mm.dao.mapper;
 
 import com.cm.mm.dao.sqlprovider.SmallProgramFavoriteSqlProvider;
+import com.cm.mm.model.Cloth;
 import com.cm.mm.model.SmallProgramFavorite;
 import org.apache.ibatis.annotations.*;
 
@@ -11,15 +12,17 @@ import java.util.List;
  */
 @Mapper
 public interface SmallProgramFavoriteMapper {
-    @Select("select cloth_id from mm_small_program_favorite where wechat_id=#{wechatId}")
-   /* @Results(
-            id="Small_Program_Favorite",value =
+    @Select("select c.id,name,model,brand_id,price,type,user_id,pic_url,url_type,description,c.createAt,c.updateAt from mm_cloth c,mm_small_program_favorite sp where sp.cloth_id = c.id and sp.wechat_id=#{wechatId}")
+    @Results(
+            id="Cloth",value =
             {
-                    @Result(column = "wechat_id",property = "wechatId"),
-                    @Result(column = "cloth_id",property = "clothId")
+                    @Result(column = "pic_url",property = "picUrl"),
+                    @Result(column = "user_id",property = "userId"),
+                    @Result(column = "url_type",property = "urlType"),
+                    @Result(column = "brand_id",property = "brand",one=@One(select = "com.cm.mm.dao.mapper.ClothBrandMapper.getClothBrandById"))
             }
-    )*/
-    List<Integer> getSpFavorites(@Param("wechatId") String wechatId);
+    )
+    List<Cloth> getSpFavorites(@Param("wechatId") String wechatId);
 
     @InsertProvider(type = SmallProgramFavoriteSqlProvider.class,method = "getInsertFavoritesSql")
     int insertSpFavorites(@Param("wechatId") String wechatId,List<Integer> ids);

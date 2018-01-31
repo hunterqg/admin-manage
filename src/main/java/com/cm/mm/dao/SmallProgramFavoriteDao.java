@@ -1,6 +1,7 @@
 package com.cm.mm.dao;
 
 import com.cm.mm.dao.mapper.SmallProgramFavoriteMapper;
+import com.cm.mm.model.Cloth;
 import com.cm.mm.model.SmallProgramFavorite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ public class SmallProgramFavoriteDao extends BaseDao {
     @Autowired
     private SmallProgramFavoriteMapper mapper;
 
-    public List<Integer> getSpFavorites(String wechatId) {
+    public List<Cloth> getSpFavorites(String wechatId) {
         return mapper.getSpFavorites(wechatId);
     }
 
