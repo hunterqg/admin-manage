@@ -6,6 +6,7 @@ import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,9 +59,12 @@ public class SmallProgramFavoriteController {
                 if(ids == null) {
                     retMap.put("code",-3);
                     retMap.put("msg","invalid input ids!");
+                }else {
+                    Map<String, Object> dataMap = new HashMap<>();
+                    dataMap.put("wechatId", wechatId);
+                    dataMap.put("counts", service.removeAllFavorites(wechatId, ids));
+                    retMap.put("data",dataMap);
                 }
-                retMap.put("wechatId", wechatId);
-                retMap.put("counts", service.removeAllFavorites(wechatId, ids));
             }
         }
 
@@ -84,9 +88,12 @@ public class SmallProgramFavoriteController {
                 if(ids == null) {
                     retMap.put("code",-3);
                     retMap.put("msg","invalid input ids!");
+                }else {
+                    Map<String, Object> dataMap = new HashMap<>();
+                    dataMap.put("wechatId", wechatId);
+                    dataMap.put("counts", service.addAllFaviatories(wechatId, ids));
+                    retMap.put("data",dataMap);
                 }
-                retMap.put("wechatId", wechatId);
-                retMap.put("counts", service.addAllFaviatories(wechatId, ids));
             }
         }
 
