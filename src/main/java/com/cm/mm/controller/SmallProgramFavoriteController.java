@@ -42,7 +42,7 @@ public class SmallProgramFavoriteController {
         return retMap;
     }
     @RequestMapping(value = "/spfavorite/{wechatId}",method = RequestMethod.DELETE)
-    public Map removeFavorites(@PathVariable("wechatId") String wechatId, @RequestBody List<Integer> ids) {
+    public Map removeFavorites(@PathVariable("wechatId") String wechatId, @RequestBody Map map) {
         Map<String,Object> retMap = new HashedMap();
         retMap.put("code",0);
         retMap.put("msg","ok");
@@ -54,6 +54,11 @@ public class SmallProgramFavoriteController {
                 retMap.put("code",-2);
                 retMap.put("msg","wechat id can not be found!");
             }else {
+                List<Integer> ids = (List<Integer>)map.get("ids");
+                if(ids == null) {
+                    retMap.put("code",-3);
+                    retMap.put("msg","invalid input ids!");
+                }
                 retMap.put("wechatId", wechatId);
                 retMap.put("counts", service.removeAllFavorites(wechatId, ids));
             }
@@ -63,7 +68,7 @@ public class SmallProgramFavoriteController {
     }
 
     @RequestMapping(value = "/spfavorite/{wechatId}",method = RequestMethod.POST)
-    public Map addFavorites(@PathVariable("wechatId") String wechatId, @RequestBody List<Integer> ids) {
+    public Map addFavorites(@PathVariable("wechatId") String wechatId, @RequestBody Map map) {
         Map<String,Object> retMap = new HashedMap();
         retMap.put("code",0);
         retMap.put("msg","ok");
@@ -75,6 +80,11 @@ public class SmallProgramFavoriteController {
                 retMap.put("code",-2);
                 retMap.put("msg","wechat id can not be found!");
             }else {
+                List<Integer> ids = (List<Integer>)map.get("ids");
+                if(ids == null) {
+                    retMap.put("code",-3);
+                    retMap.put("msg","invalid input ids!");
+                }
                 retMap.put("wechatId", wechatId);
                 retMap.put("counts", service.addAllFaviatories(wechatId, ids));
             }

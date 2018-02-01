@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({"id","createAt","updateAt"})
 public class SmallProgramUser extends Base{
     private String wechatId;
+    private String uid;
     private Integer gender;
     private Integer age;
     private Float height;
@@ -79,5 +80,13 @@ public class SmallProgramUser extends Base{
 
     public void setPreferred(String preferred) {
         this.preferred = preferred;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

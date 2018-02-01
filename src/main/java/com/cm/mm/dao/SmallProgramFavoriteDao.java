@@ -28,4 +28,8 @@ public class SmallProgramFavoriteDao extends BaseDao {
     public int deleteFavorites(String wechatId,List<Integer> clothIds) {
         return mapper.deleteSpFavorites(wechatId,clothIds);
     }
+
+    public int updateFavoirtesForNewLogin(String newWechatId,String oldWechatId) {
+        return mapper.updateWechatIdForNewLogin(newWechatId,oldWechatId);
+    }
 }

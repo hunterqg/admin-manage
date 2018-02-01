@@ -51,4 +51,21 @@ public class SmallProgramUserController {
         return retMap;
     }
 
+
+    @RequestMapping(value = "/reg",method = RequestMethod.POST)
+    public Map saveSpUserForLogin(@RequestBody SmallProgramUser user) {
+        logger.debug("input:" + user.toString());
+        Map retMap = new HashMap();
+        retMap.put("code",0);
+        retMap.put("msg","ok");
+        try {
+            service.saveSpUserForLogin(user);
+        }catch (Exception e) {
+            retMap.put("code", -1);
+            retMap.put("msg", e.getMessage());
+            e.printStackTrace();
+        }
+        return retMap;
+    }
+
 }

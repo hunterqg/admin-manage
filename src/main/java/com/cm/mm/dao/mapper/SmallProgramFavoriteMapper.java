@@ -30,4 +30,7 @@ public interface SmallProgramFavoriteMapper {
     @DeleteProvider(type = SmallProgramFavoriteSqlProvider.class,method = "getDeleteFavoritesSql")
     int deleteSpFavorites(@Param("wechatId") String wechatId,List<Integer> ids);
 
+    @Update("update mm_small_program_favorite set wechat_id=#{newWechatId} where wechat_id=#{oldWechatId}")
+    int updateWechatIdForNewLogin(@Param("newWechatId") String newWechatId,@Param("oldWechatId") String oldWechatId);
+
 }
